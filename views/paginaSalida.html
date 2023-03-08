@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Corte 2</title>
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+        }
+        main{
+            width: 500px;
+            height: auto;
+            background-color: bisque;
+        }
+
+        .centrarDiv{
+            display: grid;
+            place-items: center;
+        }
+
+        .separacion{
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+        .contenido{
+            background-color: rgb(126, 126, 235);
+            border: 5px solid black;
+        }
+    </style>
+</head>
+<body style="height: 100vh;" class="centrarDiv">
+
+        
+    <%
+    let numContrato= NumContrato;
+    let nombre = Nombre;
+    let nivelDeEstudios = NivelDeEstudios;
+    let pagoDiario = PagoDiario;
+    let diasTrabajados = DiasTrabajados;
+
+    let subtotal = 0;
+    let total = 0;
+
+    let pagoMasIncremento
+
+    ISR = 0.16;
+    impuesto = 0;
+
+
+    if(nivelDeEstudios == 'Licenciatura'){
+
+        pagoMasIncremento = pagoDiario * 1.20;
+
+        subtotal = pagoMasIncremento * diasTrabajados;
+        impuesto = subtotal * ISR;
+
+        Total = subtotal - impuesto;
+
+    } else if(nivelDeEstudios == 'Maestria'){
+
+        pagoMasIncremento = pagoDiario * 1.50;
+
+        subtotal = pagoMasIncremento * diasTrabajados;
+        impuesto = subtotal * ISR;
+
+        Total = subtotal - impuesto;
+
+    } else if(nivelDeEstudios == 'Doctorado'){
+
+        pagoMasIncremento = pagoDiario * 2.00;
+
+        subtotal = pagoMasIncremento * diasTrabajados;
+        impuesto = subtotal * ISR;
+
+        Total = subtotal - impuesto;
+    }
+    
+    %>
+
+    <main>
+
+        <%-include('partials/header.html');%>
+
+        <%-include('partials/navBar.html');%>
+
+
+        <div class="centrarDiv contenido separacion">
+            <table class="table caption-top">
+                <caption>List of users</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Grado</th>
+                    <th scope="col">Dias Trabajados</th>
+                    <th scope="col">Pago Por Dia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><%= Nombre %></th>
+                    <td><%= NivelDeEstudios %></td>
+                    <td><%= DiasTrabajados %></td>
+                    <td><%= PagoDiario %></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td>SubTotal:</td>
+                    <td><%= subtotal %></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td>Impuesto:</td>
+                    <td><%= impuesto %></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td>Total a Pagar:</td>
+                    <td><%= Total %></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <hr>
+
+        <%-include('partials/footer.html');%>
+
+    </main>
+
+
+
+
+</body>
+</html>

@@ -46,46 +46,54 @@
 
 
         <div class="centrarDiv contenido separacion">
-            <form action="post">
-                <label for="NumContacto">Numero de Contacto:</label>
+            <form action="/PaginaSalida" method="p">
+                <label for="NumContacto">Numero de Contrato:</label>
                 <br>
-                <input id="NumContacto" name="NumContacto" type="text">
+                <input id="NumContrato" name="NumContrato" type="text">
 
                 <br>
 
                 <label for="Nombre">Nombre:</label>
                 <br>
-                <input id="Nombre" name="Nombre" type="text">
+                <input id="Nombre" name="Nombre" type="text" required="true">
+
 
                 <br>
                 
                 <label for="Domicilio">Domicilio:</label>
                 <br>
-                <input id="Domicilio" name="Domicilio" type="text">
+                <input id="Domicilio" name="Domicilio" type="text" required="true">
 
                 <br>
                 
-                <label for="Estudio">Nivel de Estudios:</label>
+                <label for="NivelDeEstudios">Nivel de Estudios:</label>
                 <br>
-                <select name="NvEstudios" id="NvEstudios" value="">
-                    <option value="1">Licenciatura</option>
-                    <option value="2">Maestria</option>
-                    <option value="3">Doctorado</option>
+                <select name="NivelDeEstudios" id="NivelDeEstudios" value="" required="true">
+                    <option value="Licenciatura">Licenciatura</option>
+                    <option value="Maestria">Maestria</option>
+                    <option value="Doctorado">Doctorado</option>
                 </select>
 
                 <br>
 
                 <label for="PagoDiario">Pago Diario Base:</label>
                 <br>
-                <input id="PagoDiario" name="PagoDiario" type="text">
+                <input id="PagoDiario" name="PagoDiario" type="text" required="true">
 
                 <br>
 
                 <label for="DiasTrabajados">Dias Trabajados:</label>
                 <br>
-                <input id="DiasTrabajados" name="DiasTrabajados" type="text">
+                <input id="DiasTrabajados" name="DiasTrabajados" type="text" required="true">
 
-                <br>
+                <br><br>
+
+                <div lass=" separacion">
+                    <center>
+                        <input type="submit" value="Enviar">
+                        <input type="reset" value="Limpiar">
+                    </center>
+                </div>
             </form>
         </div>
 
@@ -94,6 +102,7 @@
         <%-include('partials/footer.html');%>
 
     </main>
+
 
 
 </body>
