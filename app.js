@@ -20,7 +20,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyparser.urlencoded({ extended: true }));
 
 // Registrar el motor de plantillas EJS para la extensión html
-//app.engine("html", require("ejs").renderFile);
+app.engine("html", require("ejs").renderFile);
 
 // Usar las rutas definidas en misRutas
 app.use(misRutas);

@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Ruta principal que muestra una página con los datos del array "datos"
 router.get("/", (req, res) => {
-  res.render("index.ejs", {
+  res.render("index.html", {
     Header: "Sistemas Microinformatica",
     subHeader: "Recursos Humanos",
     Footer: "Compañia de luz @Derechos Reservados 2023 Bryan Gonzalez",
