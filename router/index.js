@@ -34,7 +34,7 @@ router.post("/paginaEntrada", (req, res) => {
 });
 
 // Ruta principal que muestra una página con los datos del array "datos"
-router.get("/PaginaSalida", (req, res) => {
+router.get("/paginaSalida", (req, res) => {
   const params = {
     NumContrato: req.query.NumContrato,
     Nombre: req.query.Nombre,
@@ -46,7 +46,7 @@ router.get("/PaginaSalida", (req, res) => {
 
     
 };
-res.render("PaginaSalida.html", params);
+res.render("paginaSalida.html", params);
 });
 
 // Ruta que recibe los valores enviados a través del formulario de la página "/cotizacion" y muestra los resultados de la cotización
